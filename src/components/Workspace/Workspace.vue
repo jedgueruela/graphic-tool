@@ -1,23 +1,21 @@
 <template>
 	<div>
-		<PagePanel />
-		<LayerList :layerList="layerList" />
+		<PagesPanel />
+		<LayersPanel />
+		<Stage />
 	</div>
 </template>
 
 <script>
-import PagePanel from './PagePanel'
-import LayerList from './LayerList'
+import PagesPanel from './PagesPanel'
+import LayersPanel from './LayersPanel'
+import Stage from './Stage'
 
 export default {
 	components: {
-		PagePanel,
-		LayerList
-	},
-	computed: {
-		layerList() {
-			return this.$store.getters['workspace/activePageLayers']
-		}
+		PagesPanel,
+		LayersPanel,
+		Stage
 	}
 }
 </script>

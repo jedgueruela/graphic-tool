@@ -14,8 +14,8 @@ import WorkspaceItem from './WorkspaceItem'
 
 export default {
 	props: ['workspaceList'],
-	computed() {
-		workspaces: {
+	computed: {
+		workspaces() {
 			return this.workspaceList
 		}
 	},

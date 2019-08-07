@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import Navbar from './Navbar.vue'
-import Workspace from './Workspace.vue'
+import Navbar from './Navbar'
+import Workspace from './Workspace'
 
 export default {
 	components: {

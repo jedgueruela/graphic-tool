@@ -14,9 +14,9 @@
 				<p>
 					{{ layer.type }}
 					<span v-if="layer.isActive">*</span>
-					<span v-if="layer.isHidden">-</span>
+					<span v-if="!layer.config.visible">-</span>
 				</p>
-				<button @click="toggleHideLayer($event, index)">Hide</button>
+				<button @click="toggleLayerVisibility($event, index)">Hide</button>
 				<button @click="deleteLayer($event, index)">Delete</button>
 			</li>
 		</draggable>
@@ -44,9 +44,9 @@ export default {
 		setLayerActive(index) {
 			this.$store.commit('workspace/SET_ACTIVE_LAYER', { index })
 		},
-		toggleHideLayer(event, index) {
+		toggleLayerVisibility(event, index) {
 			event.stopPropagation()
-			this.$store.commit('workspace/TOGGLE_HIDE_LAYER', { index })
+			this.$store.commit('workspace/TOGGLE_LAYER_VISIBLITY', { index })
 		},
 		deleteLayer(event, index) {
 			event.stopPropagation()

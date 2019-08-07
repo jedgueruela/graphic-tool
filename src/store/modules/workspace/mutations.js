@@ -48,14 +48,23 @@ export default {
 		activePage(state).layers = layers
 	},
 
-	TOGGLE_HIDE_LAYER: (state, { index }) => {
-		const layer = activePageLayers(state)[index]
-		layer.isHidden = !layer.isHidden
+	TOGGLE_LAYER_VISIBLITY: (state, { index }) => {
+		const layerConfig = activePageLayers(state)[index].config
+		layerConfig.visible = !layerConfig.visible
+	},
+
+	ADD_LAYER: (state, layer) => {
+		activePageLayers(state).push(layer)
 	},
 
 	DELETE_LAYER: (state, { index }) => {
 		activePageLayers(state).splice(index, 1)
-	}
+	},
+
+	UPDATE_LAYER: (state, { config, index }) => {
+		const layerConfig = activePageLayers(state)[index].config
+		Object.assign(layerConfig, config)
+	},
 }
 
 function activePage(state) {
