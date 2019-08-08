@@ -7,7 +7,7 @@
 			@click="setActivePage(index)">
 			{{ page.title }}
 			<span v-if="page.isActive">*</span>
-			<button v-if="manyPages" @click="deletePage($event, index)">Delete</button>
+			<button v-if="manyPages" @click.stop="deletePage(index)">Delete</button>
 		</li>
 	</ul>
 	</div>
@@ -28,8 +28,7 @@ export default {
 		setActivePage(index) {
 			this.$store.commit('workspace/SET_ACTIVE_PAGE', { index })
 		},
-		deletePage(event, index) {
-			event.stopPropagation()
+		deletePage(index) {
 			this.$store.commit('workspace/DELETE_PAGE', { index })
 		}
 	}
