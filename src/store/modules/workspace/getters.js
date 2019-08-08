@@ -7,8 +7,8 @@ export default {
 	},
 	activePageLayers(state, getters) {
 		return getters.activePage.layers
+	},
+	activeLayer(state, getters) {
+		return getters.activePageLayers.find(layer => layer.isActive === true)
 	}
-	// activeLayer(state, getters) {
-	// 	return getters.activePageLayers.find(layer => layer.isActive === true)
-	// }
 }

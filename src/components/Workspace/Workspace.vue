@@ -1,20 +1,23 @@
 <template>
 	<div>
-		<PagesPanel />
-		<LayersPanel />
+		<Pages />
+		<Layers />
 		<Stage />
+		<Filters />
 	</div>
 </template>
 
 <script>
-import PagesPanel from './PagesPanel'
-import LayersPanel from './LayersPanel'
+import Filters from './Filters'
+import Layers from './Layers'
+import Pages from './Pages'
 import Stage from './Stage'
 
 export default {
 	components: {
-		PagesPanel,
-		LayersPanel,
+		Filters,
+		Layers,
+		Pages,
 		Stage
 	}
 }

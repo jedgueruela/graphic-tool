@@ -65,6 +65,11 @@ export default {
 		const layerConfig = activePageLayers(state)[index].config
 		Object.assign(layerConfig, config)
 	},
+
+	UPDATE_ACTIVE_LAYER: (state, { config }) => {
+		const layerConfig = activeLayer(state).config
+		Object.assign(layerConfig, config)
+	}
 }
 
 function activePage(state) {
