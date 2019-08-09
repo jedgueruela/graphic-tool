@@ -1,10 +1,10 @@
 <template>
-	<div class="home">
+	<div class="home-view">
 		<Navbar />
 		<main role="main">
-			<b-container fluid>
+			<div class="container-fluid">
 				<WorkspaceList :workspaceList="workspaceList" />
-			</b-container>
+			</div>
 		</main>
 	</div>
 </template>

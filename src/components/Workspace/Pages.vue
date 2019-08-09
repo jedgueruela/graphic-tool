@@ -1,16 +1,18 @@
 <template>
-	<div>
+	<section class="pages">
 		<PageList :pageList="pageList" />
-		<button @click="addPage">Add New</button>
-	</div>	
+    <PageFooter />
+	</section>
 </template>
 
 <script>
 import PageList from './PageList'
+import PageFooter from './PageFooter'
 
 export default {
 	components: {
-		PageList
+		PageList,
+    PageFooter
 	},
 	computed: {
 		pageList() {
@@ -24,3 +26,13 @@ export default {
 	}
 }
 </script>
+
+<style scoped>
+.pages {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+</style>

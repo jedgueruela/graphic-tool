@@ -3,13 +3,13 @@
     <template v-if="layer.type === 'Text'">
       <div class="form-group">
         <label for="text">Text</label>
-        <input
+        <textarea
           id="text"
           type="text"
           name="text"
           :value="layer.config.text"
           @input="updateLayer"
-          >
+          ></textarea>
       </div>
       <div class="form-group">
         <label for="fill">Fill</label>
