@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <main role="main">
-      <router-view></router-view>
-    </main>
+  <div class="page">
+    <router-view></router-view>
   </div>
 </template>

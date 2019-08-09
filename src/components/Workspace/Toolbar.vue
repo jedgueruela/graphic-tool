@@ -1,6 +1,7 @@
 <template>
   <div>
-    <input 
+    <input
+      accept="image/*"
       type="file"
       id="file-upload-input"
       @change="addUploadedImage"
@@ -33,24 +34,27 @@ export default {
       const file = event.target.files[0]
       const reader = new FileReader(file)
 
-      reader.onload = ((self) => {
-        return (event) => {
-          self.addImageLayer(event.target.result)
+      reader.onload = (event) => {
+        const image = new Image()
+        image.src = event.target.result
+        image.onload = () => {
+          this.addImageLayer(image.src, image.width, image.height)
         }
-      })(this)
+      }
 
       reader.readAsDataURL(file)
     },
     addLogo() {
-      this.addImageLayer('http://placehold.it/150x75')
+      this.addImageLayer('http://placehold.it/150x75', 150, 75)
     },
-    addImageLayer(src) {
+    addImageLayer(src, width, height) {
       this.$store.commit('workspace/ADD_LAYER', {
         type: 'Image',
         src,
         isActive: false,
         config: {
           draggable: true,
+          height,
           image: null,
           name: this.makeNodeName(),
           rotation: 0,
@@ -59,7 +63,7 @@ export default {
           visible: true,
           x: 0,
           y: 0,
-          width: 150
+          width
         }
       })
     },

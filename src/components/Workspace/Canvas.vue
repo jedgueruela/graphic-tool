@@ -49,7 +49,7 @@ export default {
 
       for (let i = 0; i < layers.length; i++) {
         if (layers[i].type === 'Image') {
-          let image = new Image
+          const image = new Image()
           image.src = layers[i].src
           image.onload = () => layers[i].config.image = image
         }
@@ -70,8 +70,8 @@ export default {
     },
     dragEnd({ target }) {
       const config = {
-        x: target.x(),
-        y: target.y(),
+        x: formatNumber(target.x()),
+        y: formatNumber(target.y()),
       }
 
       const index = target.index
@@ -80,9 +80,9 @@ export default {
     },
     transformEnd({ target }) {
       const config = {
-        rotation: target.rotation(),
-        scaleX: target.scaleX(),
-        scaleY: target.scaleY(),
+        rotation: formatNumber(target.rotation()),
+        scaleX: formatNumber(target.scaleX()),
+        scaleY: formatNumber(target.scaleY()),
       }
 
       const index = target.index
@@ -135,5 +135,9 @@ export default {
       transformerNode.getLayer().batchDraw()
     },
   }
+}
+
+function formatNumber(number) {
+  return Number(number.toFixed(3))
 }
 </script>

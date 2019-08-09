@@ -1,13 +1,16 @@
 <template>
-	<div>
+	<div class="home">
 		<Navbar />
-		<WorkspaceList :workspaceList="workspaceList" />
+		<main role="main">
+			<b-container fluid>
+				<WorkspaceList :workspaceList="workspaceList" />
+			</b-container>
+		</main>
 	</div>
 </template>
 
 <script>
-import Navbar from './Navbar'
-import WorkspaceList from './WorkspaceList'
+import { Navbar, WorkspaceList } from '../components/Home'
 
 export default {
 	components: {
